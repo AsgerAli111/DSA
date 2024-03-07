@@ -11,7 +11,7 @@ struct Node
 void insert(int v, int p)
 {
 
-    struct Node *temp1 = (struct Node *)malloc(sizeof(struct Node ));
+    struct Node *temp1 = (struct Node *)malloc(sizeof(struct Node));
     temp1->data = v;
     temp1->next = NULL;
 
@@ -23,7 +23,7 @@ void insert(int v, int p)
         return;
     }
 
-      struct Node *temp2 = head;
+    struct Node *temp2 = head;
 
     for (int i = 0; i < p - 2; i++)
     {
@@ -35,10 +35,10 @@ void insert(int v, int p)
 
 void print()
 {
-  struct Node *temp = head;
+    struct Node *temp = head;
     while (temp != NULL)
     {
-        std::cout << temp->data<<" ";
+        std::cout << temp->data << " ";
         temp = temp->next;
     }
     std::cout << "\n";
@@ -52,7 +52,7 @@ int main()
     insert(3, 3);
     insert(4, 2);
     insert(11, 1);
-    insert(12,6);
+    insert(12, 6);
 
     print();
 
