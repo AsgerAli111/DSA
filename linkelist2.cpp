@@ -1,11 +1,12 @@
 #include <iostream>
+#include <cstdlib>
+struct Node *head;
 
-struct Node *head; // globally accessible
 struct Node
 {
 
-    struct Node *next;
     int data;
+    struct Node *next;
 };
 
 void insert(int v, int p)
@@ -14,7 +15,6 @@ void insert(int v, int p)
     struct Node *temp1 = (struct Node *)malloc(sizeof(struct Node));
     temp1->data = v;
     temp1->next = NULL;
-
     if (p == 1)
     {
 
@@ -23,37 +23,37 @@ void insert(int v, int p)
         return;
     }
 
-    struct Node *temp2 = head;
+    Node *temp2 = head;
 
     for (int i = 0; i < p - 2; i++)
     {
+
         temp2 = temp2->next;
     }
+
     temp1->next = temp2->next;
     temp2->next = temp1;
 }
 
 void print()
 {
-    struct Node *temp = head;
-    while (temp != NULL)
+
+    Node *temp3 = head;
+    while (temp3 != NULL)
     {
-        std::cout << temp->data << " ";
-        temp = temp->next;
+
+        std::cout << temp3->data << " ";
+        temp3 = temp3->next;
     }
-    std::cout << "\n";
+    std::cout << std::endl;
 }
 
 int main()
 {
-    head = NULL;
+
     insert(1, 1);
     insert(2, 2);
-    insert(3, 3);
-    insert(4, 2);
-    insert(11, 1);
-    insert(12, 6);
-
+    insert(4, 1);
     print();
 
     return 0;

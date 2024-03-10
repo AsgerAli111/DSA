@@ -13,7 +13,7 @@ void insert(int d){
     struct Node* temp=(Node*)malloc(sizeof(Node));
 
     temp->data=d;
-    temp->next=head;
+    temp->next=head; 
     head=temp;
 }
 
@@ -27,9 +27,6 @@ void print(){
     }
     std::cout<<std::endl;
 }
-
-
-
 
 int main(){
 
