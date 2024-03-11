@@ -53,6 +53,12 @@ void deleteat(int pos)
     // free(temp2);
 
     std::cout << "\ndeleted successfully\n";
+    /* in this code let i want to delete element at fifth position so first it will iterate till
+     just before the fifth element then it will copy the address of the fifth element
+     from 4th node link part then it will assign it to temp2 which acts here as temporary node 5
+      and then it updates the link part of node 4 by putting the link address of node 6 which was copied
+       from temporarily made node named temp2.
+       */
 }
 
 void reverse()
@@ -61,7 +67,8 @@ void reverse()
     struct Node *next = NULL;
     struct Node *pre = NULL;
 
-    while(current!=NULL){
+    while (current != NULL)
+    {
 
         /*
         1. copy the next node address
@@ -69,15 +76,27 @@ void reverse()
         3. make pre node as current
         4.make current node as next
         */
-       next=current->next;
-       current->next=pre;
+        next = current->next;
+        current->next = pre;
 
-       pre=current;
-       current=next;
-
+        pre = current;
+        current = next;
     }
-    std::cout<<"\nReversed List\n";
+    std::cout << "\nReversed List\n";
     head = pre;
+}
+
+void recursivePrint(struct Node *p)
+{
+    if (p->next == NULL)
+    {
+        head = p;
+        return;
+    }
+    recursivePrint(p->next);
+    struct Node *q = p->next;
+    q->next = p;
+    p->next = NULL;
 }
 
 int main()
@@ -90,7 +109,11 @@ int main()
     insert(3);
     insert(4);
     print();
-    reverse();
+    // reverse();
+
+    recursivePrint(head);
     print();
+    std::cout << "\n end of main \n";
+
     return 0;
 }
